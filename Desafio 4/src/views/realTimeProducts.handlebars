@@ -1,0 +1,27 @@
+<div>
+    <h1>Add Product</h1>
+    <form id="productForm">
+        <input type="text" id="title" placeholder="title" required />
+        <input type="text" id="description" placeholder="description" required />
+        <input type="text" id="price" placeholder="price" required />
+        <input type="text" id="code" placeholder="code" required />
+        <input type="text" id="stock" placeholder="stock" required />
+        {{!-- <select name="status" id="status">
+            <option value="" disabled selected>Status</option>
+            <option value="true">True</option>
+            <option value="false">False</option>
+        </select> --}}
+        <button type="submit" id="submit">Enviar</button>
+    </form>
+    <div id="productos" style="margin-top: 10px; padding: 10px">
+        <h2>Productos Existente</h2>
+        {{#each products}}
+        <p>{{this.title}} - {{this.description}} - {{this.price}} - {{this.code}} - {{this.stock}}
+            <button onclick="deleteProduct({{this.id}})">Eliminar</button>
+        </p>
+        {{/each}}
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/index.js"></script>
